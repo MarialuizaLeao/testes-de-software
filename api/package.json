@@ -22,7 +22,7 @@
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
     "prisma": "^5.11.0",
-    "prisma-erd-generator": "^1.11.2",
+    "prisma-erd-generator": "^1.2.5",
     "tsx": "^4.7.1",
     "typescript": "^5.4.3",
     "vitest": "^1.6.0",
