@@ -1,36 +1,19 @@
 name: Tests and coverage
 on: [push]
 jobs:
-  unit-tests:
+  tests-coverage:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-        cache: 'npm'
-        cache-dependency-path: './api/package-lock.json'
-    - name: Run unit tests
-      run: |
-        cd api
-        npm install
-        npx prisma db push
-        npx prisma db seed
-        npm run coverage
 
-  e2e-tests:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '20'
         cache: 'npm'
         cache-dependency-path: './api/package-lock.json'
+
     - name: Run back-end
       run: |
         cd api
@@ -38,30 +21,20 @@ jobs:
         npx prisma db push
         npx prisma db seed
         npm run dev &
-
     - name: Run front-end
       run: |
         cd client
         npm install
         npm run dev &
-
+    - name: Run unit tests
+      run: |
+          cd api
+          npm run coverage
     - name: Run E2E tests
       run: |
         cd client
         npx cypress run
-
-  upload-coverage:
-    runs-on: ubuntu-latest
-    needs: [unit-tests, e2e-tests]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install Codecov
-        run: |
-          curl -s https://codecov.io/bash > codecov
-          chmod +x codecov
-          sudo mv codecov /usr/local/bin/
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
