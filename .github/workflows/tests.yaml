@@ -56,6 +56,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Install Codecov
+        run: |
+          curl -s https://codecov.io/bash > codecov
+          chmod +x codecov
+          sudo mv codecov /usr/local/bin/
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
         with:
