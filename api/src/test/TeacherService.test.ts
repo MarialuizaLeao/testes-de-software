@@ -2,7 +2,6 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 import { TeacherService } from "../services/TeacherService";
 import { Prisma, Teacher } from "@prisma/client";
 import prisma from "../libs/__mocks__/prisma";
-import * as bcrypt from "bcrypt";
 
 vi.mock("../libs/prisma.ts");
 

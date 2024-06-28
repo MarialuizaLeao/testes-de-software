@@ -21,11 +21,7 @@ class ReviewServiceClass {
 
     // Create a new review
     async create(data: Prisma.ReviewCreateInput) {
-        try {
-            return await prisma.review.create({ data });
-        } catch (error) {
-            throw new QueryError("Error creating review");
-        }
+        return await prisma.review.create({ data });
     }
 
 }
