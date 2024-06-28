@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch index.ts",
     "test": "vitest",
-    "coverage": "vitest run --coverage -r ./src/services/ --dir ./src/test"
+    "coverage": "vitest run --coverage -r ./src/services/ --dir ./src/test --coverage.reportsDirectory ./../../coverage"
   },
   "author": "",
   "license": "ISC",

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1719604550708" clover="3.2.0">
-  <project timestamp="1719604550709" name="All files">
+<coverage generated="1719604915127" clover="3.2.0">
+  <project timestamp="1719604915128" name="All files">
     <metrics statements="665" coveredstatements="469" conditionals="63" coveredconditionals="61" methods="24" coveredmethods="21" elements="752" coveredelements="551" complexity="0" loc="665" ncloc="665" packages="1" files="4" classes="4"/>
     <file name="ReviewService.ts" path="/home/marialuiza/testes-de-software/api/src/services/ReviewService.ts">
       <metrics statements="30" coveredstatements="30" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
